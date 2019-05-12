@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before-install:
+  - docker build -t lavalife/docker-react -f dev.Dockerfile .
+
+script:
+  - docker run lavalife/docker-react npm run test -- --coverage
